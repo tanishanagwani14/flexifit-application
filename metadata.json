@@ -1,0 +1,6 @@
+{
+  "name": "Flexifit Clinics Indore",
+  "description": "Best Physiotherapy, Spine Rehab, Osteopathy & Postpartum Care Clinic in Indore with online appointment booking, doctor credentials, and AI Assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "FF-MVJE3W7D",
+    "userId": "guest_patient",
+    "patientName": "Test Patient Friend",
+    "patientPhone": "+919876543210",
+    "patientEmail": "friend@example.com",
+    "service": "Spine & Slip Disc Rehabilitation (PIVD)",
+    "doctor": "Dr. Mohit Madan (Spine & Musculoskeletal)",
+    "appointmentDate": "25/10/2026",
+    "timeSlot": "11:00 AM - 12:30 PM (Morning)",
+    "status": "confirmed",
+    "createdAt": "2026-10-22T10:20:16.201Z",
+    "updatedAt": "2026-10-22T10:20:25.013Z",
+    "notes": "Approved by Dr. Mohit Madan",
+    "createdBy": "patient"
+  }
+]

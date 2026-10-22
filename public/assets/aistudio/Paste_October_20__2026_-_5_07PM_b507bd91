@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexifit Clinics | Best Physiotherapy Clinic Indore</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#1d4ed8', // Blue-700
+                        secondary: '#0ea5e9', // Sky-500
+                        accent: '#f59e0b' // Amber-500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* SPA View Transitions */
+        .page-view { 
+            display: none; 
+            opacity: 0; 
+            transform: translateY(10px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out; 
+        }
+        .page-view.active { 
+            display: block; 
+            opacity: 1; 
+            transform: translateY(0);
+        }
+        
+        /* Custom Utilities */
+        .bg-pattern {
+            background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%231d4ed8" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center cursor-pointer" data-target="home">
+                    <i class="fa-solid fa-notes-medical text-3xl text-primary mr-2"></i>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">Flexi<span class="text-secondary">fit</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <button data-target="home" class="nav-link text-primary font-bold hover:text-primary transition">Home</button>
+                    <button data-target="about" class="nav-link text-gray-600 hover:text-primary transition">About Us</button>
+                    <button data-target="services" class="nav-link text-gray-600 hover:text-primary transition">Services</button>
+                    <button data-target="reviews" class="nav-link text-gray-600 hover:text-primary transition">Reviews</button>
+                    <button data-target="contact" class="bg-primary hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg hover:shadow-xl">
+                        Book Appointment
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <button data-target="home" class="mobile-nav-link block w-full text-left px-3 py-3 rounded-md text-primary font-bold bg-blue-50">Home</button>
+                <button data-target="about" class="mobile-nav-link block w-full text-left px-3 py-3 rounded-md text-gray-700 hover:bg-gray-50">About Us</button>
+                <button data-target="services" class="mobile-nav-link block w-full text-left px-3 py-3 rounded-md text-gray-700 hover:bg-gray-50">Services</button>
+                <button data-target="reviews" class="mobile-nav-link block w-full text-left px-3 py-3 rounded-md text-gray-700 hover:bg-gray-50">Reviews</button>
+                <button data-target="contact" class="block w-full text-center px-3 py-3 mt-4 rounded-md text-white font-bold bg-primary">Book Appointment</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Application Container -->
+    <main class="flex-grow pt-20 bg-pattern">
+
+        <!-- ================= HOME PAGE VIEW ================= -->
+        <section id="view-home" class="page-view active">
+            <!-- Hero Section -->
+            <div class="relative bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-10 sm:pt-16 lg:pt-20 px-4 sm:px-6 lg:px-8">
+                        <div class="sm:text-center lg:text-left">
+                            <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-4 border border-blue-200">
+                                ⭐ 4.9/5 Rating | Top Rated in Indore
+                            </span>
+                            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                                <span class="block">Move Better,</span>
+                                <span class="block text-primary">Live Pain-Free.</span>
+                            </h1>
+                            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Indore's leading physiotherapy clinic specializing in musculoskeletal pain, spine rehab, knee pain, and comprehensive postpartum women's health. Recovery starts here.
+                            </p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                <div class="rounded-md shadow">
+                                    <button data-target="contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-primary hover:bg-blue-800 md:py-4 md:text-lg transition">
+                                        Book Consultation
+                                    </button>
+                                </div>
+                                <div class="mt-3 sm:mt-0 sm:ml-3">
+                                    <button data-target="services" class="w-full flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-full text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg transition">
+                                        Explore Services
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-gray-200">
+                    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Physiotherapy treatment session">
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="bg-primary py-12 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-extrabold text-secondary mb-2">12+</div>
+                            <div class="text-sm font-medium uppercase tracking-wide">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-extrabold text-secondary mb-2">50K+</div>
+                            <div class="text-sm font-medium uppercase tracking-wide">Patients Healed</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-extrabold text-secondary mb-2">5K+</div>
+                            <div class="text-sm font-medium uppercase tracking-wide">Surgeries Avoided</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-extrabold text-secondary mb-2">4.9</div>
+                            <div class="text-sm font-medium uppercase tracking-wide">Google Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT US VIEW ================= -->
+        <section id="view-about" class="page-view py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-base text-secondary font-semibold tracking-wide uppercase">Who We Are</h2>
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Expert Care, Personalized For You</p>
+                    <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">At Flexifit Clinics, we believe in treating the root cause of your pain, not just the symptoms. Proper assessment leads to proper healing.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Meet Our Lead Experts</h3>
+                        <div class="space-y-6">
+                            <!-- Dr. Mohit -->
+                            <div class="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-primary text-2xl">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Dr. Mohit Madan</h4>
+                                    <p class="text-sm text-secondary font-semibold mb-2">Senior Physiotherapist & Spine Specialist</p>
+                                    <p class="text-gray-600">Featured expert on Akashvani Radio. Specializes in PIVD (Slip Disc), advanced manual therapy, musculoskeletal pain, and sports rehabilitation.</p>
+                                </div>
+                            </div>
+                            <!-- Dr. Karuna -->
+                            <div class="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-pink-100 text-pink-600 text-2xl">
+                                        <i class="fa-solid fa-user-nurse"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Dr. Karuna Madan</h4>
+                                    <p class="text-sm text-pink-600 font-semibold mb-2">Women's Health & Postpartum Specialist</p>
+                                    <p class="text-gray-600">Creator of the 'Bounce Back Stronger' program. Expert in Diastasis Recti recovery, C-section scar tissue healing, and pelvic floor strengthening for new mothers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551076805-e18690c5e53b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Clinic Team" class="rounded-2xl shadow-xl">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                            <p class="font-bold text-gray-900 text-lg">Indore's Trusted</p>
+                            <p class="text-gray-500">Physiotherapy Center</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SERVICES VIEW ================= -->
+        <section id="view-services" class="page-view py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-base text-secondary font-semibold tracking-wide uppercase">Our Treatments</h2>
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Specialized Services</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-primary text-2xl mb-6">
+                            <i class="fa-solid fa-bone"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Spine & Musculoskeletal</h3>
+                        <p class="text-gray-600 mb-6">Comprehensive treatment for slip discs, sciatica, cervical stiffness, back pain, and general muscle pain. Top rated for PIVD therapy in Indore.</p>
+                        <button data-target="contact" class="text-primary font-semibold hover:text-blue-800">Consult for Spine <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-6">
+                            <i class="fa-solid fa-person-walking-with-cane"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Knee Pain & Orthopaedic</h3>
+                        <p class="text-gray-600 mb-6">Highly rated for Knee Pain recovery. We treat joint replacements, fractures, arthritis, and sports injuries. Getting you back on your feet safely.</p>
+                        <button data-target="contact" class="text-primary font-semibold hover:text-blue-800">Book Knee Rehab <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 text-2xl mb-6">
+                            <i class="fa-solid fa-person-pregnant"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Postpartum & Women's Health</h3>
+                        <p class="text-gray-600 mb-6">Specialized care for Diastasis Recti, C-section scar release, pelvic floor dysfunction, and safe return-to-exercise routines for new mothers.</p>
+                        <button data-target="contact" class="text-primary font-semibold hover:text-blue-800">Postpartum Rehab <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl mb-6">
+                            <i class="fa-solid fa-hands-holding-circle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Osteopathy & Chiropractic</h3>
+                        <p class="text-gray-600 mb-6">Advanced manual therapy techniques targeting the musculoskeletal system to relieve stiffness, align posture, and instantly improve mobility.</p>
+                        <button data-target="contact" class="text-primary font-semibold hover:text-blue-800">Learn More <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-2xl mb-6">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Cardiopulmonary Therapy</h3>
+                        <p class="text-gray-600 mb-6">Dedicated rehabilitation for patients with heart and lung conditions to improve endurance, breathing capacity, and overall quality of life.</p>
+                        <button data-target="contact" class="text-primary font-semibold hover:text-blue-800">Consult Specialist <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+
+                    <!-- CTA Box -->
+                    <div class="bg-primary rounded-2xl p-8 shadow-sm text-white flex flex-col justify-center items-center text-center">
+                        <h3 class="text-2xl font-bold mb-4">Not sure what you need?</h3>
+                        <p class="mb-6 opacity-90">Book an initial assessment. Our experts will diagnose the root cause and build a custom plan.</p>
+                        <button data-target="contact" class="bg-white text-primary px-6 py-2.5 rounded-full font-bold hover:bg-gray-100 transition w-full">
+                            Schedule Assessment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= REVIEWS VIEW ================= -->
+        <section id="view-reviews" class="page-view py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-base text-secondary font-semibold tracking-wide uppercase">Patient Testimonials</h2>
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Hear From Our Patients</p>
+                    <div class="flex justify-center items-center mt-4 text-accent text-2xl">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span class="text-gray-900 font-bold text-xl ml-2">4.9/5 on Google Maps</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                        <div class="text-accent mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-600 italic mb-6">"I had a distal radius fracture in my right hand, and after surgery I came here for physiotherapy. Now that my sessions are complete, I'm happy to say I have recovered fully. Highly recommend the staff here."</p>
+                        <div class="font-bold text-gray-900">- D.</div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                        <div class="text-accent mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-600 italic mb-6">"I came here with hip & low back pain since 1.5 month. Dr. Karuna Ma'am treated me & my pain got fully reduced. It was an excellent experience."</p>
+                        <div class="font-bold text-gray-900">- Omprakash Bhaya</div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                        <div class="text-accent mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-600 italic mb-6">"Flexifit Physiotherapy Clinic offers excellent services with a focus on patient care. The facilities are top-notch, featuring modern equipment and a great environment."</p>
+                        <div class="font-bold text-gray-900">- Ankit Saini</div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <a href="https://www.google.com/maps/place/Flexifit+Clinics" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
+                        <i class="fa-brands fa-google text-red-500 mr-2"></i> Read more reviews on Google
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT/BOOKING/INSTAGRAM VIEW ================= -->
+        <section id="view-contact" class="page-view py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="grid lg:grid-cols-2">
+                        
+                        <!-- Contact Info, Instagram, & Map -->
+                        <div class="bg-primary text-white p-10 lg:p-14 flex flex-col justify-between">
+                            <div>
+                                <h2 class="text-3xl font-extrabold mb-6">Get in Touch</h2>
+                                <p class="mb-8 text-blue-100 text-lg">Don't let pain control your life. Schedule your assessment today.</p>
+                                
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <i class="fa-solid fa-location-dot mt-1.5 text-xl text-secondary w-8"></i>
+                                        <div>
+                                            <h4 class="font-bold text-lg">Visit Clinic</h4>
+                                            <p class="text-blue-100">11, Behind Aishwarya Pathology Lab, Opposite SBI Bank,<br>Sahid Bagat Singh Colony, Anand Nagar<br>Indore – 452001 (Madhya Pradesh)</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fa-solid fa-phone mt-1.5 text-xl text-secondary w-8"></i>
+                                        <div>
+                                            <h4 class="font-bold text-lg">Call Us</h4>
+                                            <p class="text-blue-100">+91 088198 00030<br>+91 7610078988</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fa-solid fa-clock mt-1.5 text-xl text-secondary w-8"></i>
+                                        <div>
+                                            <h4 class="font-bold text-lg">Working Hours</h4>
+                                            <p class="text-blue-100">Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: Closed</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Instagram Embedded Feed -->
+                            <div class="mt-12 bg-white rounded-xl p-4 shadow-inner text-gray-900">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 p-[2px]">
+                                            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                                                <i class="fa-brands fa-instagram text-xl text-pink-600"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="font-bold text-sm leading-tight">flexifitphysiotherapy.clinic</p>
+                                            <p class="text-xs text-gray-500">2,781 followers</p>
+                                        </div>
+                                    </div>
+                                    <a href="https://www.instagram.com/flexifitphysiotherapy.clinic/?hl=en" target="_blank" class="bg-primary text-white text-xs px-4 py-1.5 rounded-full font-bold">Follow</a>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="aspect-square bg-gray-200 rounded-md overflow-hidden relative group">
+                                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&q=80" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-play text-white text-xl"></i></div>
+                                    </div>
+                                    <div class="aspect-square bg-gray-200 rounded-md overflow-hidden relative group">
+                                        <img src="https://images.unsplash.com/photo-1551076805-e18690c5e53b?w=300&q=80" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-heart text-white text-xl"></i></div>
+                                    </div>
+                                    <div class="aspect-square bg-gray-200 rounded-md overflow-hidden relative group text-center flex flex-col items-center justify-center bg-blue-50 border border-blue-100">
+                                        <p class="text-primary font-bold text-xs">World Physio Day</p>
+                                        <i class="fa-solid fa-comment-medical text-primary mt-1"></i>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-center text-gray-500 mt-3 hover:text-primary"><a href="https://www.instagram.com/flexifitphysiotherapy.clinic/?hl=en" target="_blank">View more on Instagram</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Real Booking Form (Email + WhatsApp) -->
+                        <div class="p-10 lg:p-14">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Book an Appointment</h3>
+                            <p class="text-sm text-gray-500 mb-6">Fill out your details to send a direct request to our clinic.</p>
+                            
+                            <form id="real-appointment-form" class="space-y-6">
+                                
+                                <!-- ========================================================= -->
+                                <!-- ⚠️ REQUIRED: Get your key from https://web3forms.com/ -->
+                                <!-- This connects to your email: aayashkushwaha9@gmail.com -->
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                                <!-- ========================================================= -->
+                                
+                                <input type="hidden" name="subject" value="New Flexifit Appointment Request!">
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    <input type="text" name="name" id="patientName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                    <input type="tel" name="phone" id="patientPhone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Select Service</label>
+                                    <select name="service" id="patientService" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                        <option value="Spine & Musculoskeletal">Spine & Musculoskeletal</option>
+                                        <option value="Knee Pain & Orthopaedic">Knee Pain & Orthopaedic</option>
+                                        <option value="Postpartum / Women's Health">Postpartum / Women's Health</option>
+                                        <option value="Cardiopulmonary Rehab">Cardiopulmonary Rehab</option>
+                                        <option value="Other / General Consultation">Other / General Consultation</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+                                    <input type="date" name="date" id="patientDate" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                                </div>
+                                <button type="submit" id="submitBtn" class="w-full bg-primary hover:bg-blue-800 text-white font-bold py-3.5 rounded-lg transition shadow-md flex justify-center items-center">
+                                    <span>Confirm Request</span>
+                                    <i class="fa-solid fa-paper-plane ml-2"></i>
+                                </button>
+                            </form>
+                            
+                            <!-- Success Message -->
+                            <div id="success-msg" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-center">
+                                <i class="fa-solid fa-circle-check text-2xl mb-2"></i>
+                                <p class="font-bold">Request Sent Successfully!</p>
+                                <p class="text-sm">Team Visionary / Flexifit has received your details via Email and WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-800 pb-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-notes-medical text-2xl text-secondary mr-2"></i>
+                        <span class="font-bold text-xl tracking-tight">Flexi<span class="text-secondary">fit</span> Clinics</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Dedicated to providing personalized physiotherapy care to help you move better and live pain-free.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><button data-target="home" class="hover:text-secondary transition">Home</button></li>
+                        <li><button data-target="about" class="hover:text-secondary transition">About Us</button></li>
+                        <li><button data-target="services" class="hover:text-secondary transition">Treatments</button></li>
+                        <li><button data-target="contact" class="hover:text-secondary transition">Contact & Location</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 uppercase tracking-wider text-sm">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-secondary transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-sm flex flex-col items-center justify-center">
+                <p>&copy; 2026 Flexifit Clinics. All rights reserved.</p>
+                <!-- Required Signature -->
+                <p class="mt-2 font-semibold text-gray-400 tracking-widest text-xs">POWERED BY <span class="text-white">TEAM VISIONARY</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= AI CHAT WIDGET (DEMO) ================= -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window (Hidden by default) -->
+        <div id="ai-chat-window" class="hidden w-80 md:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden mb-4 flex-col h-[450px]">
+            <!-- Header -->
+            <div class="bg-primary text-white p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-robot text-2xl mr-2 text-secondary"></i>
+                    <div>
+                        <h4 class="font-bold">Flexifit AI Assistant</h4>
+                        <p class="text-xs text-blue-200">Powered by TEAM VISIONARY</p>
+                    </div>
+                </div>
+                <button id="close-chat" class="text-white hover:text-gray-200"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col space-y-3">
+                <div class="bg-white border border-gray-200 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl text-sm text-gray-700 shadow-sm self-start max-w-[85%]">
+                    Hi! I'm the Flexifit AI. I can check our therapists' schedules and book an appointment for you. What do you need help with today?
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-3 bg-white border-t border-gray-100 flex items-center">
+                <input type="text" id="chat-input" placeholder="e.g. Book Dr. Mohit for tomorrow..." class="flex-1 px-3 py-2 bg-gray-100 rounded-full text-sm outline-none focus:ring-2 focus:ring-primary">
+                <button id="send-btn" class="ml-2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Button -->
+        <button id="chat-toggle" class="w-16 h-16 bg-primary rounded-full shadow-2xl flex items-center justify-center text-white text-2xl hover:bg-blue-800 hover:scale-105 transition transform">
+            <i class="fa-solid fa-sparkles"></i>
+        </button>
+    </div>
+
+    <!-- Javascript Handlers -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. SPA Routing Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const pages = document.querySelectorAll('.page-view');
+            const navLinks = document.querySelectorAll('[data-target]');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            function navigateTo(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                const targetPage = document.getElementById(`view-${pageId}`);
+                if(targetPage) targetPage.classList.add('active');
+                
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    if(link.dataset.target === pageId) {
+                        link.classList.remove('text-gray-600');
+                        link.classList.add('text-primary', 'font-bold');
+                    } else if (!link.classList.contains('bg-primary')) { 
+                        link.classList.add('text-gray-600');
+                        link.classList.remove('text-primary', 'font-bold');
+                    }
+                });
+
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    if(link.dataset.target === pageId) {
+                        link.classList.add('bg-blue-50', 'text-primary', 'font-bold');
+                        link.classList.remove('text-gray-700');
+                    } else {
+                        link.classList.remove('bg-blue-50', 'text-primary', 'font-bold');
+                        link.classList.add('text-gray-700');
+                    }
+                });
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                mobileMenu.classList.add('hidden');
+            }
+
+            navLinks.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navigateTo(btn.dataset.target);
+                });
+            });
+
+            // 2. Real Booking Form (Email + WhatsApp)
+            const form = document.getElementById('real-appointment-form');
+            const successMsg = document.getElementById('success-msg');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+                submitBtn.disabled = true;
+
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+
+                // Send email via Web3Forms API
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: json
+                })
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        const name = document.getElementById('patientName').value;
+                        const phone = document.getElementById('patientPhone').value;
+                        const service = document.getElementById('patientService').value;
+                        const date = document.getElementById('patientDate').value;
+                        
+                        // ===============================================
+                        // 👉 ALREADY UPDATED WITH YOUR WHATSAPP NUMBER
+                        const myPhoneNumber = "919329906127"; 
+                        // ===============================================
+
+                        const waMessage = `*New Flexifit Appointment!* 🏥%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Date:* ${date}%0A%0A_Powered by TEAM VISIONARY_`;
+                        
+                        // Open WhatsApp automatically
+                        window.open(`https://wa.me/${myPhoneNumber}?text=${waMessage}`, '_blank');
+
+                        form.style.display = 'none';
+                        successMsg.classList.remove('hidden');
+                        successMsg.classList.add('block');
+                        
+                        setTimeout(() => {
+                            form.reset();
+                            form.style.display = 'block';
+                            successMsg.classList.remove('block');
+                            successMsg.classList.add('hidden');
+                            submitBtn.innerHTML = '<span>Confirm Request</span><i class="fa-solid fa-paper-plane ml-2"></i>';
+                            submitBtn.disabled = false;
+                        }, 5000);
+                    } else {
+                        alert("Error with email service.");
+                        submitBtn.innerHTML = 'Try Again';
+                        submitBtn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    alert("Network error occurred.");
+                    submitBtn.innerHTML = 'Try Again';
+                    submitBtn.disabled = false;
+                });
+            });
+
+            // 3. AI Chat Logic (Demo)
+            const chatToggle = document.getElementById('chat-toggle');
+            const closeChat = document.getElementById('close-chat');
+            const chatWindow = document.getElementById('ai-chat-window');
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+            const chatMessages = document.getElementById('chat-messages');
+
+            chatToggle.addEventListener('click', () => {
+                chatWindow.classList.toggle('hidden');
+                chatWindow.classList.toggle('flex');
+            });
+            closeChat.addEventListener('click', () => {
+                chatWindow.classList.add('hidden');
+                chatWindow.classList.remove('flex');
+            });
+
+            let step = 0;
+            function simulateAIResponse(userText) {
+                let reply = "";
+                if (step === 0) {
+                    reply = "Let me check the database for Dr. Mohit's availability. ⏳<br><br>He is currently in a surgery rehab session, but he has two open slots tomorrow:<br>• 11:30 AM<br>• 4:00 PM<br><br>Which time works for you?";
+                    step++;
+                } else if (step === 1) {
+                    reply = "Perfect. I have locked the 4:00 PM slot for you tomorrow with Dr. Mohit. Your appointment is confirmed! ✅<br><br>A confirmation WhatsApp has been sent to your number.";
+                    step = 0; 
+                }
+
+                setTimeout(() => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = "bg-white border border-gray-200 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl text-sm text-gray-700 shadow-sm self-start max-w-[85%]";
+                    msgDiv.innerHTML = reply;
+                    chatMessages.appendChild(msgDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1200); 
+            }
+
+            function handleSend() {
+                const text = chatInput.value.trim();
+                if (!text) return;
+                
+                const msgDiv = document.createElement('div');
+                msgDiv.className = "bg-primary text-white p-3 rounded-tl-xl rounded-br-xl rounded-bl-xl text-sm shadow-sm self-end max-w-[85%]";
+                msgDiv.innerHTML = text;
+                chatMessages.appendChild(msgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                chatInput.value = '';
+                simulateAIResponse(text);
+            }
+
+            sendBtn.addEventListener('click', handleSend);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSend();
+            });
+        });
+    </script>
+</body>
+</html>
